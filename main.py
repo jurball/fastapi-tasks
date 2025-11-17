@@ -1,11 +1,12 @@
-from typing import Optional, Annotated
+from typing import Annotated
 
 from fastapi import FastAPI, Depends
-from pydantic import BaseModel
 
 from contextlib import asynccontextmanager
 
 from database import create_tables, delete_tables
+from schemas import STaskAdd
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI): # жизненный цикл приложения
@@ -17,10 +18,6 @@ async def lifespan(app: FastAPI): # жизненный цикл приложен
     print("Выключение")
 
 app = FastAPI(lefispan=lifespan)
-
-class STaskAdd(BaseModel): # сущность таски
-    name: str
-    description: Optional[str] = None # как необязательный
 
 tasks = []
 
