@@ -5,8 +5,7 @@ from fastapi import FastAPI, Depends
 from contextlib import asynccontextmanager
 
 from database import create_tables, delete_tables
-from schemas import STaskAdd
-
+from router import router as tasks_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI): # жизненный цикл приложения
@@ -18,16 +17,4 @@ async def lifespan(app: FastAPI): # жизненный цикл приложен
     print("Выключение")
 
 app = FastAPI(lefispan=lifespan)
-
-tasks = []
-
-@app.post("/tasks") # эндпоинт для создания таски
-async def add_task(
-        task: Annotated[STaskAdd, Depends()] # валидация тасок
-):
-    tasks.append(task)
-    return { "ok": True }
-
-@app.get("/tasks") # эндпоинт для получения всех тасок
-def get_tasks():
-    return { "data": tasks }
+app.include_router(tasks_router)
