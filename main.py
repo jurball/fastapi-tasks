@@ -16,5 +16,5 @@ async def lifespan(app: FastAPI): # жизненный цикл приложен
     yield
     print("Выключение")
 
-app = FastAPI(lifespan=lifespan)
-app.include_router(tasks_router)
+app = FastAPI(lifespan=lifespan) # создать экземпляр FastAPI
+app.include_router(tasks_router) # подключить роут
