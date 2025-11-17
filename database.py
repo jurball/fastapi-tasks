@@ -11,7 +11,7 @@ new_session = async_sessionmaker(engine, expire_on_commit=False) # открыт�
 class Model(DeclarativeBase):
     pass
 
-class TableOrm(Model): # Объект модели
+class TaskOrm(Model): # Объект модели
     __tablename__ = "tasks" # имя таблицы
 
     id: Mapped[int] = mapped_column(primary_key=True) # первичный ключ
