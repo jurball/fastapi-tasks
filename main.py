@@ -1,5 +1,3 @@
-from typing import Annotated
-
 from fastapi import FastAPI, Depends
 
 from contextlib import asynccontextmanager
