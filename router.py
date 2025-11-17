@@ -7,6 +7,7 @@ from schemas import STaskAdd
 
 router = APIRouter(
     prefix="/tasks",
+    tags=["Таски"] # для Swagger Doc
 )
 
 @router.post("") # эндпоинт для создания таски
