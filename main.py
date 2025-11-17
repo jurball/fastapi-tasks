@@ -16,5 +16,5 @@ async def lifespan(app: FastAPI): # жизненный цикл приложен
     yield
     print("Выключение")
 
-app = FastAPI(lefispan=lifespan)
+app = FastAPI(lefespan=lifespan)
 app.include_router(tasks_router)
