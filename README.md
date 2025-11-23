@@ -1,4 +1,4 @@
-# fastapi_tasks
+# fastapi-tasks
 
 Простой REST API для создания и чтения задач.
 Проект основан на FastAPI, использует SQLAlchemy, aiosqlite в качестве драйвера SQLite и uvicorn для запуска приложения.
@@ -16,24 +16,33 @@
 ## Установка и локальный запуск
 
 ### 1. Клонирование проекта
-git clone <url вашего репозитория>
-cd fastapi_tasks
+
+```bash
+git clone https://github.com/jurball/fastapi-tasks.git
+cd fastapi-tasks
+```
 
 ### 2. Установка зависимостей
 
 Рекомендуется использовать виртуальное окружение:
 
+```bash
 python -m venv venv
 source venv/bin/activate  # Для Linux/macOS
 venv\Scripts\activate     # Для Windows
+```
 
 Установка зависимостей:
 
+```bash
 pip install -r requirements.txt
+```
 
 ### 3. Локальный запуск
-uvicorn app:app --host 0.0.0.0 --port 8085 --reload
 
+```bash
+uvicorn app:app --host 0.0.0.0 --port 8085 --reload
+```
 
 После запуска приложение будет доступно по адресу:
 [http://127.0.0.1:8085/](http://127.0.0.1:8085)
@@ -43,11 +52,14 @@ uvicorn app:app --host 0.0.0.0 --port 8085 --reload
 
 ## Запуск через Docker
 **Сборка образа**
+```bash
 docker build . --tag fastapi-tasks
+```
 
 **Запуск контейнера**
+```bash
 docker run -p 8085:8085 fastapi-tasks
-
+```
 
 После запуска API доступно по адресу:
 [http://127.0.0.1:8085/](http://127.0.0.1:8085/)
