@@ -41,7 +41,7 @@ pip install -r requirements.txt
 ### 3. Локальный запуск
 
 ```bash
-uvicorn app:app --host 0.0.0.0 --port 8085 --reload
+uvicorn main:app --host 0.0.0.0 --port 8085 --reload
 ```
 
 После запуска приложение будет доступно по адресу:
@@ -66,7 +66,42 @@ docker run -p 8085:8085 fastapi-tasks
 
 ## Эндпоинты
 
-Более подробная документация доступна по `/docs`
+Более подробная документация доступна по `/docs`, но основные операции:
+
+### Создать задачу
+
+`POST /tasks`
+
+Body:
+```json
+{
+  "title": "Новая задача",
+  "description": "Описание задачи"
+}
+```
+
+Response **201**:
+```json
+{
+  "ok": true,
+  "task_id": 0
+}
+```
+
+### Получить список задач
+
+`GET /tasks`
+
+Response **200**:
+```json
+[
+  {
+    "id": 0,
+    "name": "string",
+    "description": "string",
+  }
+]
+```
 
 ## Примечания
 
